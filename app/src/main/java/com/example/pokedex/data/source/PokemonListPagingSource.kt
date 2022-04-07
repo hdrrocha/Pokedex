@@ -24,7 +24,7 @@ class PokemonListPagingSource(val api: PokemonApi) : PagingSource<Int, Pokemon>(
         val data = withContext(Dispatchers.IO) { api.fetchPokemon(start, limit) }
 
         return LoadResult.Page(
-            data.photos.orEmpty(),
+            data.pokemons.orEmpty(),
             prevKey = if (start == INITIAL_START) null else start,
             nextKey = limit
         )

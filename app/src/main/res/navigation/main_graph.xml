@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_list_pokemon">
+
+    <fragment
+        android:id="@+id/fragment_list_pokemon"
+        android:name="com.example.pokedex.ui.fragments.PokemonListFragment"
+        android:label="@string/pokedex_title"
+        tools:layout="@layout/fragment_pokemon_list">
+
+        <argument
+            android:name="isComparing"
+            android:defaultValue="false"
+            app:argType="boolean"/>
+
+        <action
+            android:id="@+id/fragmentPokemonLint_to_fragmentPokemonDetails"
+            app:destination="@id/fragment_pokemon_details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_pokemon_details"
+        android:name="com.example.pokedex.ui.fragments.SecondFragment"
+        android:label="@string/details_title"
+        tools:layout="@layout/fragment_second">
+
+        <argument
+            android:name="id"
+            app:argType="string"/>
+
+    </fragment>
+</navigation>
