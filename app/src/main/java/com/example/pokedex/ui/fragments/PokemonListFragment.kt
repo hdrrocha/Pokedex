@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.pokedex.databinding.FragmentPokemonListBinding
 import com.example.pokedex.domain.viewmodel.PokemonListViewModel
-import com.example.pokedex.router.PokemonListRouter
+import com.example.pokedex.router.abs.PokemonListRouterAbs
 import com.example.pokedex.ui.adapters.PokemonItemsLoadStateAdapter
 import com.example.pokedex.ui.adapters.PokemonViewAdapter
 import org.koin.android.ext.android.inject
@@ -21,7 +22,7 @@ import org.koin.core.parameter.parametersOf
 
 class PokemonListFragment : Fragment() {
 
-    private val router: PokemonListRouter by inject { parametersOf(findNavController()) }
+    private val router: PokemonListRouterAbs by inject { parametersOf(findNavController()) }
 
     private val pokemonListViewModel: PokemonListViewModel by viewModel()
 
@@ -58,6 +59,11 @@ class PokemonListFragment : Fragment() {
 
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }
+
     private fun setupRecycler() {
         listener = object : PokemonViewAdapter.OnItemClickListener {
             override fun onItemClick(id: String) = handleOnClickEvent(id)
@@ -91,6 +97,11 @@ class PokemonListFragment : Fragment() {
     }
 
     private fun handleOnClickEvent(id: String) {
-        //TODO
+        val args by navArgs<PokemonListFragmentArgs>()
+        if (args.isComparing) {
+            router.goBack()
+        } else {
+            router.goToDetails(id)
+        }
     }
 }

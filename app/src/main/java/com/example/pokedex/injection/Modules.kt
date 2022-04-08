@@ -8,13 +8,20 @@ import com.example.pokedex.BuildConfig
 import com.example.pokedex.data.api.PokemonApi
 import com.example.pokedex.data.model.Pokemon
 import com.example.pokedex.data.repository.PokemonListRepositoryImp
+import com.example.pokedex.data.repository.SinglePokemonRepositoryImp
 import com.example.pokedex.data.source.PokemonListPagingSource
 import com.example.pokedex.domain.mapper.PokemonListMapperImp
+import com.example.pokedex.domain.mapper.SinglePokemonMapperImp
 import com.example.pokedex.domain.mapper.abs.PokemonListMapper
+import com.example.pokedex.domain.mapper.abs.SinglePokemonMapper
 import com.example.pokedex.domain.repository.PokemonListRepository
+import com.example.pokedex.domain.repository.SinglePokemonRepository
+import com.example.pokedex.domain.usercase.PokemonListUseCaseImp
+import com.example.pokedex.domain.usercase.SinglePokemonUseCaseImp
 import com.example.pokedex.domain.usercase.abs.PokemonListUseCase
-import com.example.pokedex.domain.usercase.abs.PokemonListUseCaseImp
+import com.example.pokedex.domain.usercase.abs.SinglePokemonUseCase
 import com.example.pokedex.domain.viewmodel.PokemonListViewModel
+import com.example.pokedex.domain.viewmodel.SinglePokemonViewModel
 import com.example.pokedex.router.PokemonListRouter
 import com.example.pokedex.router.abs.PokemonListRouterAbs
 import com.itkacher.okhttpprofiler.OkHttpProfilerInterceptor
@@ -70,11 +77,19 @@ object Modules {
                 pager = get()
             )
         }
+        single<SinglePokemonRepository> {
+            SinglePokemonRepositoryImp(
+                pokemonApi = get()
+            )
+        }
     }
 
     private val mapper = module {
         single<PokemonListMapper> {
             PokemonListMapperImp()
+        }
+        single<SinglePokemonMapper> {
+            SinglePokemonMapperImp()
         }
     }
 
@@ -85,11 +100,22 @@ object Modules {
                 pokemonListRepository = get()
             )
         }
+        single<SinglePokemonUseCase> {
+            SinglePokemonUseCaseImp(
+                mapper = get(),
+                singlePokemonRepository = get()
+            )
+        }
     }
 
     private val viewModel = module {
         viewModel {
             PokemonListViewModel(
+                useCase = get()
+            )
+        }
+        viewModel {
+            SinglePokemonViewModel(
                 useCase = get()
             )
         }

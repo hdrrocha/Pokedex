@@ -54,9 +54,9 @@ class PokemonViewAdapter : PagingDataAdapter<PokemonUi, PokemonViewAdapter.ViewH
         fun bind(item: PokemonUi) {
             binding.item = item
             binding.invalidateAll()
-            itemView.pokemon_item_title.text = item.name
+            itemView.pokemonItemTitle.text = item.name
             Glide.with(itemView)
-                .load(item.urlId.getPicUrl())
+                .load(item?.urlId.getPicUrl())
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
@@ -88,7 +88,7 @@ class PokemonViewAdapter : PagingDataAdapter<PokemonUi, PokemonViewAdapter.ViewH
                                     )
                                 )
 
-                                itemView.pokemon_item_image.setBackgroundColor(dominantColor)
+                                itemView.pokemonItemImage.setBackgroundColor(dominantColor)
                                 itemView.card.setCardBackgroundColor(dominantColor)
 
 
@@ -99,7 +99,7 @@ class PokemonViewAdapter : PagingDataAdapter<PokemonUi, PokemonViewAdapter.ViewH
                     }
 
                 })
-                .into(itemView.pokemon_item_image)
+                .into(itemView.pokemonItemImage)
 
             onItemClickListener?.let { listener ->
                 itemView.setOnClickListener { listener.onItemClick(item.name) }

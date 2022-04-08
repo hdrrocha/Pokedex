@@ -23,12 +23,12 @@
 
     <fragment
         android:id="@+id/fragment_pokemon_details"
-        android:name="com.example.pokedex.ui.fragments.SecondFragment"
+        android:name="com.example.pokedex.ui.fragments.SinglePokemonFragment"
         android:label="@string/details_title"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_pokemon_information">
 
         <argument
-            android:name="id"
+            android:name="name"
             app:argType="string"/>
 
     </fragment>

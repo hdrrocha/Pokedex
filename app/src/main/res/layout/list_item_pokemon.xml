@@ -26,7 +26,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/pokemon_item_image"
+                android:id="@+id/pokemonItemImage"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="8dp"
@@ -36,22 +36,22 @@
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/pokemon_item_title"
-                app:layout_constraintTop_toBottomOf="@+id/pokemon_item_title" />
+                app:layout_constraintStart_toEndOf="@+id/pokemonItemTitle"
+                app:layout_constraintTop_toBottomOf="@+id/pokemonItemTitle" />
 
 
             <ProgressBar
                 android:id="@+id/progress_circular"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toTopOf="@+id/pokemon_item_title"
-                app:layout_constraintEnd_toEndOf="@+id/pokemon_item_image"
-                app:layout_constraintStart_toStartOf="@+id/pokemon_item_image"
-                app:layout_constraintTop_toTopOf="@+id/pokemon_item_image"
+                app:layout_constraintBottom_toTopOf="@+id/pokemonItemTitle"
+                app:layout_constraintEnd_toEndOf="@+id/pokemonItemImage"
+                app:layout_constraintStart_toStartOf="@+id/pokemonItemImage"
+                app:layout_constraintTop_toTopOf="@+id/pokemonItemImage"
                 tools:visibility="gone" />
 
             <TextView
-                android:id="@+id/pokemon_item_title"
+                android:id="@+id/pokemonItemTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
