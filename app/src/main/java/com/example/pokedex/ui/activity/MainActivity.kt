@@ -2,9 +2,9 @@ package com.example.pokedex.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.fragment.NavHostFragment
 import com.example.pokedex.R
 
 class MainActivity : AppCompatActivity() {
@@ -15,9 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         setupLayout()
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

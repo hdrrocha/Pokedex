@@ -56,7 +56,7 @@ class PokemonViewAdapter : PagingDataAdapter<PokemonUi, PokemonViewAdapter.ViewH
             binding.invalidateAll()
             itemView.pokemonItemTitle.text = item.name
             Glide.with(itemView)
-                .load(item?.urlId.getPicUrl())
+                .load(item.urlId.getPicUrl())
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .listener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(

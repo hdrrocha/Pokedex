@@ -35,13 +35,6 @@ data class SinglePokemonResponse(
     val types: List<PokemonTypes>,
     val weight: Double
 )
-data class Species (
-    val name: String,
-    val url: String
-)
 
-data class GameIndex (
-    val game_index: Double,
 
-    val version: Species
-)
+

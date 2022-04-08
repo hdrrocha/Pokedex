@@ -15,18 +15,23 @@ class SinglePokemonViewModel(
     val idPokemonData = Transformations.map(mutableData) {
         it.id.toString()
     }
+
     val namePokemonData = Transformations.map(mutableData) {
         it.name
     }
+
     val baseExperiencePokemonData = Transformations.map(mutableData) {
         it.baseExperience.toString()
     }
+
     val weightPokemonData = Transformations.map(mutableData) {
         it.weight.toString()
     }
+
     val heightPokemonData = Transformations.map(mutableData) {
         it.height.toString()
     }
+
     val orderPokemonData = Transformations.map(mutableData) {
         it.order.toString()
     }
