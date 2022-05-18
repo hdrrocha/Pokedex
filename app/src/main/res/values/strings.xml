@@ -9,4 +9,14 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="pokedex_title">Pokedex</string>
+    <string name="details_title">Detalhes</string>
+    <string name="app_error">There was some problem loading the data. Try again later.</string>
+    <string name="pokemon_name">Name: </string>
+    <string name="base_experience">Base experience: </string>
+    <string name="height">Height: </string>
+    <string name="pokemon_id">Id:</string>
+    <string name="weight">Weight:</string>
+    <string name="order">Order: </string>
+
 </resources>

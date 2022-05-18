@@ -9,7 +9,10 @@ If you want to take a look on mainscreen of the App, it's here :
 
 ## About this Project
 
+The project was developed using the MVVM architecture in addition to having::
+
 The project has:
+
 *  Koin for dependency injection;
 *  Palette and Glide for image manipulation;
 *  Paging for Paging;

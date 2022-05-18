@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.pokedex.domain.viewmodel.SinglePokemonViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/red500"
+        tools:context=".ui.activity.MainActivity">
+
+        <ImageView
+            android:id="@+id/pokemon_image"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_image_pokemon"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/rounded_top_border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_image"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/id_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/border_standard"
+                    android:layout_marginTop="@dimen/border_standard"
+                    android:text="@string/pokemon_id"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/idDescriptionValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/spacing_micro"
+                    android:layout_marginTop="@dimen/border_standard"
+                    android:layout_marginEnd="@dimen/border_standard"
+                    android:text="@{viewModel.idPokemonData}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/id_description"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/name_pokemon_description"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/border_standard"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/pokemon_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/id_description" />
+
+                <TextView
+                    android:id="@+id/namePokemonValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/spacing_micro"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/border_standard"
+                    android:text="@{viewModel.namePokemonData}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/name_pokemon_description"
+                    app:layout_constraintTop_toBottomOf="@+id/idDescriptionValue" />
+
+                <TextView
+                    android:id="@+id/base_experience_description"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/spacing_micro"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/border_standard"
+                    android:text="@string/base_experience"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/base_experience_value"
+                    app:layout_constraintTop_toBottomOf="@+id/namePokemonValue" />
+
+                <TextView
+                    android:id="@+id/base_experience_value"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/border_standard"
+                    android:layout_marginTop="8dp"
+                    android:text="@{viewModel.baseExperiencePokemonData}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/name_pokemon_description" />
+
+                <TextView
+                    android:id="@+id/weight_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/border_standard"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/weight"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/base_experience_description" />
+
+                <TextView
+                    android:id="@+id/weightValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/spacing_micro"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/border_standard"
+                    android:text="@{viewModel.weightPokemonData}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/weight_description"
+                    app:layout_constraintTop_toBottomOf="@+id/base_experience_value" />
+
+                <TextView
+                    android:id="@+id/height_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/border_standard"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/height"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/weight_description" />
+
+                <TextView
+                    android:id="@+id/heightValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/spacing_micro"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/border_standard"
+                    android:text="@{viewModel.heightPokemonData}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/height_description"
+                    app:layout_constraintTop_toBottomOf="@+id/weightValue" />
+
+                <TextView
+                    android:id="@+id/order_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/border_standard"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/order"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/height_description" />
+
+                <TextView
+                    android:id="@+id/orderValue"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/spacing_micro"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="@dimen/border_standard"
+                    android:text="@{viewModel.orderPokemonData}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/order_description"
+                    app:layout_constraintTop_toBottomOf="@+id/height_description" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
